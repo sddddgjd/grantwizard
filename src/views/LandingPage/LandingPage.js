@@ -31,7 +31,7 @@ export default function LandingPage() {
             <GridItem xs={12} sm={12} md={6}>
               <h1 className={classes.title}>Let’s navigate this together.</h1>
               <h4>
-                Covid-19 has led to mass unemployment globally. [TOOL NAME] is a
+                COVID-19 has led to mass unemployment globally. [TOOL NAME] is a
                 simple easy-to-use platform to help you understand what
                 financial aid, benefits and other resources you are eligible for
                 and help you navigate through what’s next. We’re in this

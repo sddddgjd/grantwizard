@@ -4,8 +4,8 @@ import { makeStyles } from '@material-ui/core/styles'
 
 // @material-ui/icons
 import Chat from '@material-ui/icons/Chat'
-import VerifiedUser from '@material-ui/icons/VerifiedUser'
-import Fingerprint from '@material-ui/icons/Fingerprint'
+import ListAlt from '@material-ui/icons/ListAlt'
+import SearchIcon from '@material-ui/icons/Search'
 // core components
 import GridContainer from 'components/Grid/GridContainer.js'
 import GridItem from 'components/Grid/GridItem.js'
@@ -23,7 +23,7 @@ export default function ProductSection() {
         <GridItem xs={12} sm={12} md={8}>
           <h2 className={classes.title}>Get on track to financial stability in 10 minutes</h2>
           <h5 className={classes.description}>
-            We guide you through what you need to do after you are laid off and handle all the heavylifting. Spend 10 minutes filling out a bit of information, and we’ll help you find and apply for eligible grants.
+            We guide you through what you need to do after you are laid off and handle all the heavy lifting. Spend 10 minutes filling out a bit of information, and we’ll help you apply for eligible grants, find jobs and manage finances.
           </h5>
         </GridItem>
       </GridContainer>
@@ -32,7 +32,7 @@ export default function ProductSection() {
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
               title="Step-by-step guidance"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+              description="Get back on track with ease. We’ve done all the research and simplified everything into a few simple steps. Apply for grants/aid -> find temporary jobs -> manage finances -> apply for full time jobs all on one platform."
               icon={Chat}
               iconColor="info"
               vertical
@@ -41,8 +41,8 @@ export default function ProductSection() {
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
               title="Auto apply to grants"
-              description="Fill in one quick master form and apply to all eligible grants and benefits. No printing, mailing or faxing necessary. Our goal is to make it as simple and easy as possible to get you help."
-              icon={VerifiedUser}
+              description="Fill in one quick master form and apply to all eligible grants and benefits. No printing, mailing or faxing necessary."
+              icon={ListAlt}
               iconColor="success"
               vertical
             />
@@ -50,8 +50,8 @@ export default function ProductSection() {
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
               title="Find jobs"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-              icon={Fingerprint}
+              description="Get matched to gigs that fit your skill sets and start making income again today."
+              icon={SearchIcon}
               iconColor="danger"
               vertical
             />
