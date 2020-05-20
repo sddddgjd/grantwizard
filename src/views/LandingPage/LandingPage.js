@@ -35,7 +35,7 @@ export default function LandingPage() {
                 simple easy-to-use platform to help you understand what
                 financial aid, benefits and other resources you are eligible for
                 and help you navigate through what’s next. We’re in this
-                together 💪
+                together
               </h4>
               <br />
               <Button
