@@ -16,7 +16,7 @@ import styles from 'assets/jss/material-kit-react/views/landingPage.js'
 
 // Sections for this page
 import ProductSection from './Sections/ProductSection.js'
-import TeamSection from './Sections/TeamSection.js'
+// import TeamSection from './Sections/TeamSection.js'
 import WorkSection from './Sections/WorkSection.js'
 
 const useStyles = makeStyles(styles)
@@ -31,7 +31,7 @@ export default function LandingPage() {
             <GridItem xs={12} sm={12} md={6}>
               <h1 className={classes.title}>Let’s navigate this together.</h1>
               <h4>
-                Covid-19 has led to mass unemployment globally. [TOOL NAME] is a
+                COVID-19 has led to mass unemployment globally. NextStep is a
                 simple easy-to-use platform to help you understand what
                 financial aid, benefits and other resources you are eligible for
                 and help you navigate through what’s next. We’re in this
@@ -53,7 +53,6 @@ export default function LandingPage() {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
           <ProductSection />
-          <TeamSection />
           <WorkSection />
         </div>
       </div>
