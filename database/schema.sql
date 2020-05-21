@@ -26,6 +26,7 @@ CREATE TABLE SubScheme (
 	website text,
 	amount int,
 	amount_type int references AmountType(id),
+	duration int,
 	parent_scheme_id int references Scheme(id)
 );
 
@@ -70,10 +71,12 @@ CREATE TABLE EligibilityQuestion (
 
 CREATE INDEX ON EligibilityQuestion(id);
 
+DROP TABLE IF EXISTS EligibilityRequirement CASCADE;
+
 CREATE TABLE EligibilityRequirement (
 	id int NOT NULL primary key,
 	eligibility_question_id int references EligibilityQuestion(id),
-	value int,
+	value text,
 	rule_id int references Rule(id),
 	scheme_id int references Scheme(id),
 	subscheme_id int references SubScheme(id),
