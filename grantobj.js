@@ -24,9 +24,9 @@ let grantObj = {
         grant_id: 1004,
         name: 'Child allowance',
         description: 'PLACEHOLDER TEXT',
-        value: 3000,
-            //should we actually put value type 'monthly' or just the id?
-            value_type: 'monthly'
+        amount: 3000,
+            //should we actually put amount type 'monthly' or just the id?
+            amount_type: 'monthly'
         eligibility_requirements: [{
                 req_id: 2001,
                 name: 'Child in household',
@@ -40,9 +40,9 @@ let grantObj = {
             grant_id: 2001,
             name: 'Elderly allowance',
             description: 'PLACEHOLDER TEXT',
-            value: 1000,
-            //should we actually put value type 'monthly' or just the id?
-            value_type: 'monthly'
+            amount: 1000,
+            //should we actually put amount type 'monthly' or just the id?
+            amount_type: 'monthly'
             eligibility_requirements: [{
                     req_id: 2003,
                     name: 'TITLE',
@@ -53,8 +53,8 @@ let grantObj = {
                     validation_type_id: 14},
                 {
                     req_id: 2002,
-                    name: 'Household asset value',
-                    question: 'What is the total value of your household assets?',
+                    name: 'Household asset amount',
+                    question: 'What is the total amount of your household assets?',
                     //should we actually put question type 'plain text' or just the id?
                     question_type: 104,
                     //should we actually put validation type 'integer' or just the id?
