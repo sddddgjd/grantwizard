@@ -26,7 +26,7 @@ CREATE TABLE SubScheme (
 	website text,
 	amount int,
 	amount_type int references AmountType(id),
-	duration int,
+	duration text,
 	parent_scheme_id int references Scheme(id)
 );
 
@@ -160,7 +160,7 @@ INSERT INTO EligibilityQuestion(id, name, question, question_type_id) VALUES (40
 
 INSERT INTO Scheme(id, name, description) VALUES (1001, 'Anti-epidemic Fund', 'COVID-19 special fund to help businesses stay afloat, to keep workers in employment, to relieve financial burdens of individuals and businesses, and to assist the economy to recover once the epidemic is contained.');
 INSERT INTO EligibilitySet(id, scheme_id) VALUES (8001, 1001);
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5001, 8001, 4001, 'yes');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5000, 8001, 4001, 'yes');
 
 INSERT INTO SubScheme(id, name, description, website, amount, amount_type, duration, parent_scheme_id) VALUES (2001, 'Travel Agents and Practitioners Support Scheme - Travel Agent', 'Travel agent''s staff each receive a subsidy equivalent to $5,000 monthly for six months. Each subsidy will be disbursed in two tranches', 'https://www.tourism.gov.hk/english/anti_epidemic_fund/travel_agents.html', 5000, 302, 6, 1001);
 INSERT INTO EligibilitySet(id, subscheme_id) VALUES (8002, 2001);
@@ -168,13 +168,13 @@ INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_
 
 INSERT INTO SubScheme(id, name, description, website, amount, amount_type, duration, parent_scheme_id) VALUES (2002, 'Travel Agents and Practitioners Support Scheme - Tour Guides and Tour Escorts Support Scheme', 'Freelance accredited tourist guides and tour escorts whose main occupations are tourist guides and tour escorts each receive a subsidy equivalent to $5,000 monthly for six months. Each subsidy will be disbursed in two tranches', 'https://www.tourism.gov.hk/english/anti_epidemic_fund/tourist_guide_escort.html', 5000, 302, 6, 1001);
 INSERT INTO EligibilitySet(id, subscheme_id) VALUES (8003, 2002);
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value, subscheme_id) VALUES (6002, 8003, 4002, 'Tour Guide and/or Tour Escort');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value, subscheme_id) VALUES (6003, 8003, 4003, 'yes');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (6002, 8003, 4002, 'Tour Guide and/or Tour Escort');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (6003, 8003, 4003, 'yes');
 
 INSERT INTO SubScheme(id, name, description, website, amount, amount_type, duration, parent_scheme_id) VALUES (2003, 'Travel Agents and Practitioners Support Scheme - Tour Guides and Tour Escorts Support Scheme', 'The Tour Service Coach Drivers Support Scheme aims to provide a one-off subsidy of $10,000 to tour service coach drivers each.', 'https://www.tourism.gov.hk/english/anti_epidemic_fund/drivers.html', 10000, 301, 1, 1001);
 INSERT INTO EligibilitySet(id, subscheme_id) VALUES (8004, 2003);
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value, subscheme_id) VALUES (6004, 8004, 4002, 'Tour Guide and/or Tour Escort');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value, subscheme_id) VALUES (6005, 8004, 4004, 'yes');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (6004, 8004, 4002, 'Tour Guide and/or Tour Escort');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (6005, 8004, 4004, 'yes');
 
 INSERT INTO Scheme(id, name, description) VALUES (1002, 'Working Family Allowance Scheme', 'Under the WFA Scheme, a household (including one-person household) who meets the working hours requirement, and income and asset limits may apply for Basic (full-rate: $800; ¾ rate: $600; half-rate: $400), Medium (full-rate: $1000; ¾ rate: $750; half-rate: $500) or Higher (Full-rate: $1200, ¾ rate: $900; half-rate: $600) Allowance.  Each eligible child (aged below 15, or aged between 15 and 21 receiving full-time non-post-secondary education) may also apply for a Child Allowance (full-rate: $1000; ¾ rate: $750; half-rate: $500).');
 INSERT INTO EligibilitySet(id, scheme_id) VALUES (8005, 1002);
@@ -182,61 +182,61 @@ INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_
 INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5002, 8005, 4005, 'yes');
 
 INSERT INTO SubScheme(id, name, description, website, amount, amount_type, duration, parent_scheme_id) VALUES (2004, '1 Household Member', '', 'https://www.wfsfaa.gov.hk/wfao/en/index.htm', 1200, 302, 'ongoing', 1002);
-INSERT INTO EligibilitySet(id, scheme_id) VALUES (8006, 2004);
+INSERT INTO EligibilitySet(id, subscheme_id) VALUES (8006, 2004);
 INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5003, 8006, 4010, '1');
 INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5004, 8006, 4007, '<=14100');
 INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5005, 8006, 4008, '<=266000');
 
 INSERT INTO SubScheme(id, name, description, website, amount, amount_type, duration, parent_scheme_id) VALUES (2005, '2 Household Members', '', 'https://www.wfsfaa.gov.hk/wfao/en/index.htm', 1200, 302, 'ongoing', 1002);
-INSERT INTO EligibilitySet(id, scheme_id) VALUES (8007, 2005);
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5003, 8007, 4010, '2');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5004, 8007, 4007, '<=20500');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5005, 8007, 4008, '<=360000');
+INSERT INTO EligibilitySet(id, subscheme_id) VALUES (8007, 2005);
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5006, 8007, 4010, '2');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5007, 8007, 4007, '<=20500');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5008, 8007, 4008, '<=360000');
 
 INSERT INTO SubScheme(id, name, description, website, amount, amount_type, duration, parent_scheme_id) VALUES (2006, '3 Household Members', '', 'https://www.wfsfaa.gov.hk/wfao/en/index.htm', 1200, 302, 'ongoing', 1002);
-INSERT INTO EligibilitySet(id, scheme_id) VALUES (8008, 2006);
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5003, 8008, 4010, '3');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5004, 8008, 4007, '<=25100');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5005, 8008, 4008, '<=469000');
+INSERT INTO EligibilitySet(id, subscheme_id) VALUES (8008, 2006);
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5009, 8008, 4010, '3');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5010, 8008, 4007, '<=25100');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5011, 8008, 4008, '<=469000');
 
 INSERT INTO SubScheme(id, name, description, website, amount, amount_type, duration, parent_scheme_id) VALUES (2007, '4 Household Members', '', 'https://www.wfsfaa.gov.hk/wfao/en/index.htm', 1200, 302, 'ongoing', 1002);
-INSERT INTO EligibilitySet(id, scheme_id) VALUES (8009, 2007);
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5003, 8009, 4010, '4');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5004, 8009, 4007, '<=31300');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5005, 8009, 4008, '<=548000');
+INSERT INTO EligibilitySet(id, subscheme_id) VALUES (8009, 2007);
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5012, 8009, 4010, '4');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5013, 8009, 4007, '<=31300');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5014, 8009, 4008, '<=548000');
 
 INSERT INTO SubScheme(id, name, description, website, amount, amount_type, duration, parent_scheme_id) VALUES (2008, '5 Household Members', '', 'https://www.wfsfaa.gov.hk/wfao/en/index.htm', 1200, 302, 'ongoing', 1002);
-INSERT INTO EligibilitySet(id, scheme_id) VALUES (8010, 2008);
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5003, 8010, 4010, '5');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5004, 8010, 4007, '<=32500');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5005, 8010, 4008, '<=609000');
+INSERT INTO EligibilitySet(id, subscheme_id) VALUES (8010, 2008);
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5015, 8010, 4010, '5');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5016, 8010, 4007, '<=32500');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5017, 8010, 4008, '<=609000');
 
 INSERT INTO SubScheme(id, name, description, website, amount, amount_type, duration, parent_scheme_id) VALUES (2009, '6 Household Members', '', 'https://www.wfsfaa.gov.hk/wfao/en/index.htm', 1200, 302, 'ongoing', 1002);
-INSERT INTO EligibilitySet(id, scheme_id) VALUES (8011, 2009);
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5003, 8011, 4010, '6');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5004, 8011, 4007, '<=34000');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5005, 8011, 4008, '<=659000');
+INSERT INTO EligibilitySet(id, subscheme_id) VALUES (8011, 2009);
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5018, 8011, 4010, '6');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5019, 8011, 4007, '<=34000');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5020, 8011, 4008, '<=659000');
 
 INSERT INTO SubScheme(id, name, description, website, amount, amount_type, duration, parent_scheme_id) VALUES (2010, '7 Household Members', '', 'https://www.wfsfaa.gov.hk/wfao/en/index.htm', 1200, 302, 'ongoing', 1002);
-INSERT INTO EligibilitySet(id, scheme_id) VALUES (8012, 2010);
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5003, 8012, 4010, '7');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5004, 8012, 4007, '<=34000');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5005, 8012, 4008, '<=703000');
+INSERT INTO EligibilitySet(id, subscheme_id) VALUES (8012, 2010);
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5021, 8012, 4010, '7');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5022, 8012, 4007, '<=34000');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5023, 8012, 4008, '<=703000');
 
 INSERT INTO SubScheme(id, name, description, website, amount, amount_type, duration, parent_scheme_id) VALUES (2011, '8 Household Members', '', 'https://www.wfsfaa.gov.hk/wfao/en/index.htm', 1200, 302, 'ongoing', 1002);
-INSERT INTO EligibilitySet(id, scheme_id) VALUES (8013, 2011);
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5003, 8013, 4010, '8');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5004, 8013, 4007, '<=34000');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5005, 8013, 4008, '<=737000');
+INSERT INTO EligibilitySet(id, subscheme_id) VALUES (8013, 2011);
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5024, 8013, 4010, '8');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5025, 8013, 4007, '<=34000');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5026, 8013, 4008, '<=737000');
 
 INSERT INTO SubScheme(id, name, description, website, amount, amount_type, duration, parent_scheme_id) VALUES (2012, '9 Household Members', '', 'https://www.wfsfaa.gov.hk/wfao/en/index.htm', 1200, 302, 'ongoing', 1002);
-INSERT INTO EligibilitySet(id, scheme_id) VALUES (8014, 2012);
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5003, 8014, 4010, '9');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5004, 8014, 4007, '<=34000');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5005, 8014, 4008, '<=815000');
+INSERT INTO EligibilitySet(id, subscheme_id) VALUES (8014, 2012);
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5027, 8014, 4010, '9');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5028, 8014, 4007, '<=34000');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5029, 8014, 4008, '<=815000');
 
 INSERT INTO SubScheme(id, name, description, website, amount, amount_type, duration, parent_scheme_id) VALUES (2013, '10 or More Household Members', '', 'https://www.wfsfaa.gov.hk/wfao/en/index.htm', 1200, 302, 'ongoing', 1002);
-INSERT INTO EligibilitySet(id, scheme_id) VALUES (8015, 2013);
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5003, 8015, 4010, '10');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5004, 8015, 4007, '<=34000');
-INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5005, 8015, 4008, '<=878000');
+INSERT INTO EligibilitySet(id, subscheme_id) VALUES (8015, 2013);
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5030, 8015, 4010, '10');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5031, 8015, 4007, '<=34000');
+INSERT INTO EligibilityRequirement(id, eligibility_set_id, eligibility_question_id, value) VALUES (5032, 8015, 4008, '<=878000');
