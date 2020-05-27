@@ -3,18 +3,31 @@ import ReactDOM from 'react-dom'
 import { createBrowserHistory } from 'history'
 import { Router, Route, Switch } from 'react-router-dom'
 
-import 'assets/scss/material-kit-react.scss?v=1.8.0'
-
 // pages for this product
-import LandingPage from 'views/LandingPage/LandingPage.js'
+import LandingPage from 'views/LandingPage.js'
+import ThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
+import { createMuiTheme } from '@material-ui/core'
 
 var hist = createBrowserHistory()
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#0C7AED',
+      secondary: '#3394F9',
+      light: '#3394F9',
+      dark: '#0465C9'
+    }
+  }
+})
+
 ReactDOM.render(
-  <Router history={hist}>
-    <Switch>
-      <Route path="/" component={LandingPage} />
-    </Switch>
-  </Router>,
+  <ThemeProvider theme={theme}>
+    <Router history={hist}>
+      <Switch>
+        <Route path="/" component={LandingPage} />
+      </Switch>
+    </Router>
+  </ThemeProvider>,
   document.getElementById('root')
 )
