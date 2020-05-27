@@ -1,0 +1,52 @@
+.background {
+  background-image: url('../images/background.svg');
+
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+
+  /* Background image is fixed in the viewport so that it doesn't move when 
+     the content's height is greater than the image's height */
+  background-attachment: fixed;
+
+  /* This is what makes the background image rescale based
+     on the container's size */
+  background-size: cover;
+
+  /* Set a background color that will be displayed
+     while the background image is loading */
+  background-color: #464646;
+  min-height: 70vh;
+  padding-bottom: 100px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+#volunteerCards {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.volunteer-card {
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 25px;
+  max-width: 300px;
+  margin: auto;
+  height: 400px;
+}
+
+.volunteer-card p {
+  text-align: left;
+}
